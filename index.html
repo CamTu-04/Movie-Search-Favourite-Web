@@ -3,30 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Search & Favourite Web</title>
+    <title>Chill Film</title>
 </head>
 <body>
-    <main class="container">
-        <section class="search-section">
-            <div class="search-bar">
-                <h1>Movie Search & Favourite Web</h1>
+    <header>
+        <nav>
+            <img src="https://motchilltv.taxi/_ipx/f_webp&s_300x70/logo.png" alt="Chill Film Logo" class="logo">
+            <div class="search-box">
                 <input type="text" id="search-input" placeholder="Search for movies...">
                 <button id="search-button">Search</button>
-            </div> 
-            <div class="movie-results">
-                <h2>Search Results</h2>
-                <ul id="results-list">
-                    <!-- Search results will be listed here -->
-                </ul> 
-        </section>
-        <aside>
-            <div class="favourite-section">
-                <h2>Favourite Movies</h2>
-                <ul id="favourite-list">
-                    <!-- Favourite movies will be listed here -->
-                </ul>
             </div>
-        </aside>
+            <a href="#">Home</a>
+            <a href="#" class="hold">Thể loại</a>
+            <a href="#" class="hold">Quốc gia</a>
+            <a href="#">Phim bộ</a>
+            <a href="#">Phim lẻ</a>
+            <a href="#">Phim 4K</a>
+        </nav>
+        <button id="Login" onclick="window.location.href='login.html'">Đăng nhập</button>
+    </header>
+    <main class="container">
+        <div class="featured-film">
+            <img src="https://image-cdn.motchilltv.me/images/20260331/86439806-cb03-46cf-8a48-9fc37e2ed537.webp" alt="Featured Film" class="featured-image">
+            <div class="featured-info">
+                <h1>Featured Film Title</h1>
+                <p>Short description of the featured film goes here. It can include genre, release year, and a brief synopsis.</p>
+                <button class="watch-now">Watch Now</button>
+        </div>
+        <div class="list-film">
+            <section class="movie-attention">
+                <h2>Bạn đang quan tâm gì?</h2>
+                <div class="attention">Phim 4K</div>
+                <div class="attention">Phim bộ</div>
+                <div class="attention">Phim lẻ</div>
+                <div class="attention">Việt Nam</div>
+                <div class="attention">Hàn Quốc</div>
+                <div class="attention">Trung Quốc</div>
+            </section>
+            <section class="movie-list">
+                <h2>Phim Việt Nam</h2>
+                <a href="movie-detail.html">Xem tất cả</a>
+                <div class="movie">
+                    <img src="assets/movie1.jpg" alt="Movie 1">
+                    <h3>Movie Title 1</h3>
+                </div>
+                <div class="movie">
+                    <img src="assets/movie2.jpg" alt="Movie 2">
+                    <h3>Movie Title 2</h3>
+                </div>
+                <div class="movie">
+                    <img src="assets/movie3.jpg" alt="Movie 3">
+                    <h3>Movie Title 3</h3>
+                </div>
+                <div class="movie">
+                    <img src="assets/movie4.jpg" alt="Movie 4">
+                    <h3>Movie Title 4</h3>
+                </div>
+                <div class="movie">
+                    <img src="assets/movie5.jpg" alt="Movie 5">
+                    <h3>Movie Title 5</h3>
+                </div>
+                <div class="movie">
+                    <img src="assets/movie6.jpg" alt="Movie 6">
+                    <h3>Movie Title 6</h3>
+                </div>
+            </section>
+            <section class="movie-list">
+                <h2>Phim Hàn Quốc</h2>
+                <a href="movie-detail.html">Xem tất cả</a>
+                <div class="movie">
+                    <img src="assets/movie1.jpg" alt="Movie 1">
+                    <h3>Movie Title 1</h3>
+                </div>
+                <div class="movie">
+                    <img src="assets/movie2.jpg" alt="Movie 2">
+                    <h3>Movie Title 2</h3>
+                </div>
+                <div class="movie">
+                    <img src="assets/movie3.jpg" alt="Movie 3">
+                    <h3>Movie Title 3</h3>
+                </div>
+                <div class="movie">
+                    <img src="assets/movie4.jpg" alt="Movie 4">
+                    <h3>Movie Title 4</h3>
+                </div>
+                <div class="movie">
+                    <img src="assets/movie5.jpg" alt="Movie 5">
+                    <h3>Movie Title 5</h3>
+                </div>
+                <div class="movie">
+                    <img src="assets/movie6.jpg" alt="Movie 6">
+                    <h3>Movie Title 6</h3>
+                </div>
+            </section>
+            <section class="movie-list">
+                <h2>Phim Trung Quốc</h2>
+                <a href="movie-detail.html">Xem tất cả</a>
+                <div class="movie">
+                    <img src="assets/movie1.jpg" alt="Movie 1">
+                    <h3>Movie Title 1</h3>
+                </div>
+                <div class="movie">
+                    <img src="assets/movie2.jpg" alt="Movie 2">
+                    <h3>Movie Title 2</h3>
+                </div>
+                <div class="movie">
+                    <img src="assets/movie3.jpg" alt="Movie 3">
+                    <h3>Movie Title 3</h3>
+                </div>
+                <div class="movie">
+                    <img src="assets/movie4.jpg" alt="Movie 4">
+                    <h3>Movie Title 4</h3>
+                </div>
+                <div class="movie">
+                    <img src="assets/movie5.jpg" alt="Movie 5">
+                    <h3>Movie Title 5</h3>
+                </div>
+                <div class="movie">
+                    <img src="assets/movie6.jpg" alt="Movie 6">
+                    <h3>Movie Title 6</h3>
+                </div>
+            </section>
+        </div>
     </main>
 </body>
 </html>
