@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <title>Chill Film</title>
 </head>
 <body>
     <header>
         <nav>
-            <img src="https://motchilltv.taxi/_ipx/f_webp&s_300x70/logo.png" alt="Chill Film Logo" class="logo">
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="Search for movies...">
-                <button id="search-button">Search</button>
+            <img src="https://motchilltv.foo/_ipx/f_webp&s_300x70/logo.png" alt="Chill Film Logo" class="logo">
+            <div id="search-box">
+                <input type="text" id="search-input" placeholder="Search for movies">
+                <button class="icon">🔍</button>
             </div>
             <a href="#">Home</a>
             <a href="#" class="hold">Thể loại</a>
@@ -24,107 +25,157 @@
     </header>
     <main class="container">
         <div class="featured-film">
-            <img src="https://image-cdn.motchilltv.me/images/20260331/86439806-cb03-46cf-8a48-9fc37e2ed537.webp" alt="Featured Film" class="featured-image">
+            <img src="https://static2.vieon.vn/vieplay-image/carousel_web_v4_ntc/2026/04/17/m6e5iydo_1920x1080-carousel-02_1920_1080.jpeg" alt="Featured Film" class="featured-image">
             <div class="featured-info">
-                <h1>Featured Film Title</h1>
+                <h2>Nguyệt Lân Y Kỷ</h2>
+                <p style="color: yellow; font-weight: 600;">Fate Chooses You</p>
                 <p>Short description of the featured film goes here. It can include genre, release year, and a brief synopsis.</p>
                 <button class="watch-now">Watch Now</button>
+            </div>
         </div>
         <div class="list-film">
-            <section class="movie-attention">
+            <section >
                 <h2>Bạn đang quan tâm gì?</h2>
-                <div class="attention">Phim 4K</div>
-                <div class="attention">Phim bộ</div>
-                <div class="attention">Phim lẻ</div>
-                <div class="attention">Việt Nam</div>
-                <div class="attention">Hàn Quốc</div>
-                <div class="attention">Trung Quốc</div>
-            </section>
-            <section class="movie-list">
-                <h2>Phim Việt Nam</h2>
-                <a href="movie-detail.html">Xem tất cả</a>
-                <div class="movie">
-                    <img src="assets/movie1.jpg" alt="Movie 1">
-                    <h3>Movie Title 1</h3>
-                </div>
-                <div class="movie">
-                    <img src="assets/movie2.jpg" alt="Movie 2">
-                    <h3>Movie Title 2</h3>
-                </div>
-                <div class="movie">
-                    <img src="assets/movie3.jpg" alt="Movie 3">
-                    <h3>Movie Title 3</h3>
-                </div>
-                <div class="movie">
-                    <img src="assets/movie4.jpg" alt="Movie 4">
-                    <h3>Movie Title 4</h3>
-                </div>
-                <div class="movie">
-                    <img src="assets/movie5.jpg" alt="Movie 5">
-                    <h3>Movie Title 5</h3>
-                </div>
-                <div class="movie">
-                    <img src="assets/movie6.jpg" alt="Movie 6">
-                    <h3>Movie Title 6</h3>
+                <div class="movie-attention">
+                    <div class="attention">Phim 4K</div>
+                    <div class="attention">Phim Mới</div>
+                    <div class="attention">Phim bộ</div>
+                    <div class="attention">Phim lẻ</div>
+                    <div class="attention">Hàn Quốc</div>
+                    <div class="attention">Trung Quốc</div>
+                    <div class="attention">Cổ Trang</div>
                 </div>
             </section>
-            <section class="movie-list">
-                <h2>Phim Hàn Quốc</h2>
-                <a href="movie-detail.html">Xem tất cả</a>
-                <div class="movie">
-                    <img src="assets/movie1.jpg" alt="Movie 1">
-                    <h3>Movie Title 1</h3>
+            <section >
+                <div class="info">
+                    <h2>Phim Lẻ Mới</h2>
+                    <a href="movie-detail.html">Xem tất cả</a>
                 </div>
-                <div class="movie">
-                    <img src="assets/movie2.jpg" alt="Movie 2">
-                    <h3>Movie Title 2</h3>
-                </div>
-                <div class="movie">
-                    <img src="assets/movie3.jpg" alt="Movie 3">
-                    <h3>Movie Title 3</h3>
-                </div>
-                <div class="movie">
-                    <img src="assets/movie4.jpg" alt="Movie 4">
-                    <h3>Movie Title 4</h3>
-                </div>
-                <div class="movie">
-                    <img src="assets/movie5.jpg" alt="Movie 5">
-                    <h3>Movie Title 5</h3>
-                </div>
-                <div class="movie">
-                    <img src="assets/movie6.jpg" alt="Movie 6">
-                    <h3>Movie Title 6</h3>
+                <div class="movie-attention">
+                    <div class="movie">
+                        <img src="https://image-cdn.motchilltv.me/cdn/width=400/images/20260427/096b1bb7-a53b-492f-9090-be81035cefe0.jpg" alt="Movie 1">
+                        <h3>Điệp Ảnh Truy Tung</h3>
+                    </div>
+                    <div class="movie">
+                        <img src="https://image-cdn.motchilltv.me/cdn/width=400/images/20260427/4bd1b7c7-18ff-427b-b445-f7610dfc5f14.jpg" alt="Movie 2">
+                        <h3>Tình Người Duyên Ma</h3>
+                    </div>
+                    <div class="movie">
+                        <img src="https://image-cdn.motchilltv.me/cdn/width=400/images/20260402/tinh-dau-kho-noi.webp" alt="Movie 3">
+                        <h3>5 centimet Trên Giây</h3>
+                    </div>
+                    <div class="movie">
+                        <img src="https://image-cdn.motchilltv.me/cdn/width=400/images/20260414/39d34cb3-a858-4345-9bb8-3d070f7d0251.webp" alt="Movie 4">
+                        <h3>Trò Chơi Của Quỷ</h3>
+                    </div>
+                    <div class="movie">
+                        <img src="https://image-cdn.motchilltv.me/cdn/width=400/images/20260427/e5015d63-94e0-48e1-b182-65189049c0b6.webp" alt="Movie 5">
+                        <h3>Tình Đầu Khó Nói</h3>
+                    </div>
+                    <div class="movie">
+                        <img src="https://image-cdn.motchilltv.me/cdn/width=400/images/20260401/d769059c-d736-42a2-a520-011593f517f0.webp" alt="Movie 6">
+                        <h3>Humint</h3>
+                    </div>
                 </div>
             </section>
-            <section class="movie-list">
-                <h2>Phim Trung Quốc</h2>
-                <a href="movie-detail.html">Xem tất cả</a>
-                <div class="movie">
-                    <img src="assets/movie1.jpg" alt="Movie 1">
-                    <h3>Movie Title 1</h3>
+            <section >
+                <div class="info">
+                    <h2>Phim Hàn Quốc</h2>
+                    <a href="movie-detail.html">Xem tất cả</a>
                 </div>
-                <div class="movie">
-                    <img src="assets/movie2.jpg" alt="Movie 2">
-                    <h3>Movie Title 2</h3>
+                <div class="movie-attention">
+                    <div class="movie">
+                        <img src="https://image-cdn.motchilltv.me/cdn/width=400/images/20260421/e80940c8-40c8-47c5-ac4d-54c553a1d4c5.webp" alt="Movie 1">
+                        <h3>Bù Nhìn Bóng Đêm</h3>
+                    </div>
+                    <div class="movie">
+                        <img src="https://image-cdn.motchilltv.me/cdn/width=400/images/20260414/6b1dd25c-5565-4c0e-b0ab-cd2a1ab98e86.webp" alt="Movie 2">
+                        <h3>Các Tế Bào Của Yumi</h3>
+                    </div>
+                    <div class="movie">
+                        <img src="https://image-cdn.motchilltv.me/cdn/width=400/images/20260314/85d0e1ff-2205-4749-9a68-b988f545719c.webp" alt="Movie 3">
+                        <h3>Bác Sĩ Shin</h3>
+                    </div>
+                    <div class="movie">
+                        <img src="https://image-cdn.motchilltv.me/cdn/width=400/images/20260410/187bde16-2130-46de-9a37-0d8e26acb237.webp" alt="Movie 4">
+                        <h3>Cuộc Chiến Trong Chúng Ta</h3>
+                    </div>
+                    <div class="movie">
+                        <img src="https://image-cdn.motchilltv.me/cdn/width=400/images/20260420/e00d16c2-b541-4848-97d4-98fe767c7969.jpg" alt="Movie 5">
+                        <h3>Thanh Tra Bí Mật</h3>
+                    </div>
+                    <div class="movie">
+                        <img src="https://image-cdn.motchilltv.me/cdn/width=400/movie/images/20260121/1eb12591773d56e099a62f1e126443c7.jpg" alt="Movie 6">
+                        <h3>Người Đàn Ông Đầu Tiên</h3>
+                    </div>
                 </div>
-                <div class="movie">
-                    <img src="assets/movie3.jpg" alt="Movie 3">
-                    <h3>Movie Title 3</h3>
+            </section>
+            <section>
+                <div class="info">
+                    <h2>Phim Trung Quốc</h2>
+                    <a href="movie-detail.html">Xem tất cả</a>
                 </div>
-                <div class="movie">
-                    <img src="assets/movie4.jpg" alt="Movie 4">
-                    <h3>Movie Title 4</h3>
-                </div>
-                <div class="movie">
-                    <img src="assets/movie5.jpg" alt="Movie 5">
-                    <h3>Movie Title 5</h3>
-                </div>
-                <div class="movie">
-                    <img src="assets/movie6.jpg" alt="Movie 6">
-                    <h3>Movie Title 6</h3>
+                <div class="movie-attention">
+                    <div class="movie">
+                        <img src="assets/movie1.jpg" alt="Movie 1">
+                        <h3>Mê Hoặc</h3>
+                    </div>
+                    <div class="movie">
+                        <img src="assets/movie2.webp" alt="Movie 2">
+                        <h3>Cung Nữ Này Stupid</h3>
+                    </div>
+                    <div class="movie">
+                        <img src="assets/movie3.webp" alt="Movie 3">
+                        <h3>Ánh Sáng Trong Đêm</h3>
+                    </div>
+                    <div class="movie">
+                        <img src="assets/movie4.webp" alt="Movie 4">
+                        <h3>Pháo Hoa</h3>
+                    </div>
+                    <div class="movie">
+                        <img src="assets/movie5.webp" alt="Movie 5">
+                        <h3>Có Một Lá Thư</h3>
+                    </div>
+                    <div class="movie">
+                        <img src="assets/movie6.webp" alt="Movie 6">
+                        <h3>Lật Ngược Cuộc Đời</h3>
+                    </div>
                 </div>
             </section>
         </div>
     </main>
+    <footer>
+        <div style="text-wrap: wrap; margin-right: 60px;">
+            <img src="https://motchilltv.foo/_ipx/f_webp&s_300x70/logo.png" alt="Chill Film Logo" class="logo">
+            <p><span style="color: orange;">Motchill</span> - Xem phim Online chất lượng Full HD với giao diện thân thiện, trực quan cùng kho phim với hơn 10.000+ phim mới và nổi bật.</p>
+        </div>
+        <div>
+            <h4>Danh Mục</h4>
+            <p><a href="#">Phim Lẻ</a></li></p>
+            <p><a href="#">Phim Bộ</a></li></p>
+            <p><a href="#">Phim 4K</a></li></p>
+            <p><a href="#">Phim Hàn Quốc</a></p></p>
+            <p><a href="#">Phim Trung Quốc</a></p></p>
+        </div>
+        <div>
+            <h4>Thể Loại</h4>
+            <p><a href="#">Tình Cảm</a></li></p>
+            <p><a href="#">Cổ Trang</a></li></p>
+            <p><a href="#">Đam Mỹ</a></li></p>
+            <p><a href="#">Bách Hợp</a></p></p>
+            <p><a href="#">Viễn Tưởng</a></p></p>
+        </div>
+        <div>
+            <h4>Điều Khoản</h4>
+            <p><a href="#">DMCA</a></li></p>
+            <p><a href="#">Liên Hệ</a></li></p>
+            <p><a href="#">Privacy</a></li></p>
+            <p><a href="#">Terms of Service</a></p></p>
+            <p><a href="#">Hòm Thư</a></p></p>
+        </div>
+    </footer>
+    <div class="foo">
+        © 2026 Motchill. All rights reserved.
+    </div>
 </body>
 </html>

@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: linear-gradient(to bottom, black, transparent);
+    padding: 0 32px;
+}
+
+/* NAVBAR */
+.navbar {
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* LOGO */
+.logo {
+    height: 56px;
+    flex-shrink: 0;
+}
+
+/* SEARCH */
+.search-box {
+    flex: 1;
+    max-width: 350px;
+    min-width: 220px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 10px 14px;
+
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+}
+
+.search-box input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    color: white;
+    font-size: 14px;
+}
+
+.search-box input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+.search-btn {
+    border: none;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+/* NAV LINKS */
+.nav-link {
+    text-decoration: none;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #00c853;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+    padding: 10px 20px;
+
+    border: none;
+    border-radius: 999px;
+
+    background: white;
+    color: black;
+
+    font-weight: 600;
+    cursor: pointer;
+
+    flex-shrink: 0;
+}
