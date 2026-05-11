@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <title>Chill Film</title>
+
+    <title>Relax Film</title>
 </head>
 <body>
     <header>
@@ -24,14 +25,7 @@
         <button id="Login" onclick="window.location.href='login.html'">Đăng nhập</button>
     </header>
     <main class="container">
-        <div class="featured-film">
-            <img src="https://static2.vieon.vn/vieplay-image/carousel_web_v4_ntc/2026/04/17/m6e5iydo_1920x1080-carousel-02_1920_1080.jpeg" alt="Featured Film" class="featured-image">
-            <div class="featured-info">
-                <h2>Nguyệt Lân Y Kỷ</h2>
-                <p style="color: yellow; font-weight: 600;">Fate Chooses You</p>
-                <p>Short description of the featured film goes here. It can include genre, release year, and a brief synopsis.</p>
-                <button class="watch-now">Watch Now</button>
-            </div>
+        <div class="featured-film" id="featured-film">
         </div>
         <div class="list-film">
             <section >
@@ -51,7 +45,7 @@
                     <h2>Phim Lẻ Mới</h2>
                     <a href="movie-detail.html">Xem tất cả</a>
                 </div>
-                <div class="movie-attention">
+                <div class="movie-attention" id="movie-attention-new">
                     <div class="movie">
                         <img src="https://image-cdn.motchilltv.me/cdn/width=400/images/20260427/096b1bb7-a53b-492f-9090-be81035cefe0.jpg" alt="Movie 1">
                         <h3>Điệp Ảnh Truy Tung</h3>
@@ -83,31 +77,8 @@
                     <h2>Phim Hàn Quốc</h2>
                     <a href="movie-detail.html">Xem tất cả</a>
                 </div>
-                <div class="movie-attention">
-                    <div class="movie">
-                        <img src="https://image-cdn.motchilltv.me/cdn/width=400/images/20260421/e80940c8-40c8-47c5-ac4d-54c553a1d4c5.webp" alt="Movie 1">
-                        <h3>Bù Nhìn Bóng Đêm</h3>
-                    </div>
-                    <div class="movie">
-                        <img src="https://image-cdn.motchilltv.me/cdn/width=400/images/20260414/6b1dd25c-5565-4c0e-b0ab-cd2a1ab98e86.webp" alt="Movie 2">
-                        <h3>Các Tế Bào Của Yumi</h3>
-                    </div>
-                    <div class="movie">
-                        <img src="https://image-cdn.motchilltv.me/cdn/width=400/images/20260314/85d0e1ff-2205-4749-9a68-b988f545719c.webp" alt="Movie 3">
-                        <h3>Bác Sĩ Shin</h3>
-                    </div>
-                    <div class="movie">
-                        <img src="https://image-cdn.motchilltv.me/cdn/width=400/images/20260410/187bde16-2130-46de-9a37-0d8e26acb237.webp" alt="Movie 4">
-                        <h3>Cuộc Chiến Trong Chúng Ta</h3>
-                    </div>
-                    <div class="movie">
-                        <img src="https://image-cdn.motchilltv.me/cdn/width=400/images/20260420/e00d16c2-b541-4848-97d4-98fe767c7969.jpg" alt="Movie 5">
-                        <h3>Thanh Tra Bí Mật</h3>
-                    </div>
-                    <div class="movie">
-                        <img src="https://image-cdn.motchilltv.me/cdn/width=400/movie/images/20260121/1eb12591773d56e099a62f1e126443c7.jpg" alt="Movie 6">
-                        <h3>Người Đàn Ông Đầu Tiên</h3>
-                    </div>
+                <div class="movie-attention" id="movie-attention-korea">
+                // List Movie Korea Popular
                 </div>
             </section>
             <section>
@@ -115,31 +86,8 @@
                     <h2>Phim Trung Quốc</h2>
                     <a href="movie-detail.html">Xem tất cả</a>
                 </div>
-                <div class="movie-attention">
-                    <div class="movie">
-                        <img src="assets/movie1.jpg" alt="Movie 1">
-                        <h3>Mê Hoặc</h3>
-                    </div>
-                    <div class="movie">
-                        <img src="assets/movie2.webp" alt="Movie 2">
-                        <h3>Cung Nữ Này Stupid</h3>
-                    </div>
-                    <div class="movie">
-                        <img src="assets/movie3.webp" alt="Movie 3">
-                        <h3>Ánh Sáng Trong Đêm</h3>
-                    </div>
-                    <div class="movie">
-                        <img src="assets/movie4.webp" alt="Movie 4">
-                        <h3>Pháo Hoa</h3>
-                    </div>
-                    <div class="movie">
-                        <img src="assets/movie5.webp" alt="Movie 5">
-                        <h3>Có Một Lá Thư</h3>
-                    </div>
-                    <div class="movie">
-                        <img src="assets/movie6.webp" alt="Movie 6">
-                        <h3>Lật Ngược Cuộc Đời</h3>
-                    </div>
+                <div class="movie-attention" id="movie-attention-china">
+                // List Movie China Popular
                 </div>
             </section>
         </div>
@@ -177,5 +125,7 @@
     <div class="foo">
         © 2026 Motchill. All rights reserved.
     </div>
+    <script src="js/data.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>

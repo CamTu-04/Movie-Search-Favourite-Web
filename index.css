@@ -104,8 +104,19 @@ header button {
 .featured-film > img {
     position: block;
     width: 100%;
-    height: auto;
+    height: 800px;
     object-fit: cover;
+}
+
+.featured-image {
+    width: 100%;
+
+    transform: translateX(5%);
+    transition: transform 0.3s ease;
+}
+
+.featured-image.show {
+    transform: translateX(0);
 }
 
 .featured-info {
@@ -115,6 +126,27 @@ header button {
     left: 50px;
     color: white;
     z-index: 2;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.5s ease;
+}
+
+.featured-info.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to right,
+            rgba(0,0,0,0.8),
+            rgba(0,0,0,0.2),
+            rgba(0,0,0,0.2)
+        );
 }
 
 .list-film {
@@ -205,3 +237,22 @@ footer div img {
     background-color: rgba(0, 0, 0, 0.911);       
     color: rgba(255, 255, 255, 0.496);
 }
+
+.english-title{
+    color: yellow;
+    font-weight: 600;
+}
+
+.movie-meta{
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.movie-meta span{
+    background-color: rgba(255,255,255,0.1);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
