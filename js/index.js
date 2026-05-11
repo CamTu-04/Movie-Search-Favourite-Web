@@ -53,24 +53,70 @@ slideAuto();
 /*<---------End of Render Featured Movie--------->*/
 
 /*<---------List Movie Popular Countries--------->*/
-const renderMovieChinaContainer = document.querySelector("#movie-attention-china");
-const renderMovieKoreaContainer = document.querySelector("#movie-attention-korea");
-const renderMovieNewContainer = document.querySelector("#movie-attention-new");
-
-function createMovieListHTML(movies) {
+function createMovieListHTML(movieArray, idContainer) {
+    const renderMovieContainer = document.querySelector(idContainer);
     let movieHTML = "";
-    movies.forEach(movie => {
+    movieArray.forEach(movie => {
         movieHTML += `
-            <div class="movie">
+            <div class="movie" data-id="${movie.id}">
                 <img src="${movie.image}" alt="${movie.title}">
                 <h4>${movie.title}</h4>
+                <div id="movie-popup" class="movie-popup">
+                    <img src="${movie.image}" alt="${movie.title}">
+                    <div class="popup-info">
+                        <h3>${movie.title}</h3>
+                        <p>${movie.englishTitle}</p>
+                        <div class="movie-meta">
+                            <span>${movie.year}</span>
+                            <span>⭐ ${movie.rating}</span>
+                            <span>${movie.genre}</span>
+                        </div>
+                       <button class="watch-now">Xem Ngay</button>
+                    </div>
+                </div>
             </div>
         `;
     });
-    return movieHTML;
+    renderMovieContainer.innerHTML = movieHTML;
 }
-renderMovieChinaContainer.innerHTML = createMovieListHTML(moviesChina);
-renderMovieKoreaContainer.innerHTML = createMovieListHTML(moviesKorea);
-renderMovieNewContainer.innerHTML = createMovieListHTML(moviesNew);
+createMovieListHTML(moviesChina, "#movie-attention-china");
+createMovieListHTML(moviesKorea, "#movie-attention-korea");
+createMovieListHTML(moviesNew, "#movie-attention-new");
 /*<---------End of List Movie Popular Countries--------->*/
+
+// /*<---------Show Popup Info Film--------->*/
+// const popupElement = document.querySelector(".movie-popup");
+// function showPopup(movie) {
+//     const popupHTML = `
+        // <img src="${movie.image}" alt="${movie.title}">
+        // <div class="popup-info">
+        //     <h3>${movie.title}</h3>
+        //     <p>${movie.englishTitle}</p>
+        //     <div class="movie-meta">
+        //         <span>${movie.year}</span>
+        //         <span>⭐ ${movie.rating}</span>
+        //         <span>${movie.genre}</span>
+        //     </div>
+        //     <p>${movie.description}</p>
+        // </div>
+//     `;
+//     popupElement.innerHTML = popupHTML;
+// }
+
+// const movieAll = [...moviesChina, ...moviesKorea, ...moviesNew];
+// const movieElements = document.querySelectorAll(".movie");
+// movieElements.forEach(movieElement => {
+//     movieElement.addEventListener("mouseenter", () => {
+//         const movieId = movieElement.dataset.id;
+//         const movieData = movieAll.find(movie => movie.id === movieId);
+//         if(movieData){
+//             showPopup(movieData);
+//             popupElement.classList.add("show");
+//         }
+//     });
+//     movieElement.addEventListener("mouseleave", () => {
+//         popupElement.classList.remove("show");
+//     });
+// });
+/*<---------End of Show Popup Info Film--------->*/
 

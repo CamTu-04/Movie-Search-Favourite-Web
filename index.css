@@ -40,7 +40,8 @@ nav > * {
 }
 
 nav img.logo {
-    height: 3.5rem;
+    height: 4rem;
+    width: 6rem;
     flex-shrink: 0;
 }
 
@@ -187,6 +188,7 @@ header button {
     flex-direction: column;
     flex: 1;
     height: 180px;
+    position: relative;
 }
 
 .movie img {
@@ -255,4 +257,50 @@ footer div img {
     border-radius: 20px;
     font-size: 14px;
 }
+
+/*Popup Info Movie*/
+.movie-popup {
+    position: absolute;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background-color:  rgb(31, 30, 30);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1001;
+    width: 200%;
+    max-width: 600px;
+    transition: all 0.3s ease-in-out; /* hiệu ứng mượt */
+    pointer-events: none; /* tránh bị hover trực tiếp vào popup */
+}
+
+.movie-popup img {
+    width: calc(100% + 40px); 
+    margin: -20px;
+    margin-bottom: 0px;
+    height: auto;
+    border-radius: 10px;
+    display: block; 
+}
+.movie p {
+    color: rgba(255, 255, 0, 0.33);
+    font-size: 14px;
+}
+.movie:hover .movie-popup {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1); 
+    pointer-events: auto; 
+}
+
+button{
+    background: linear-gradient(to left, rgb(188, 203, 26), rgb(232, 174, 29));;
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: none;
+    color: black;
+    cursor: pointer;
+    font-size: 16px;
+}
+
 
