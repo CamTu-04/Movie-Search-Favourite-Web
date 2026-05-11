@@ -106,4 +106,4 @@ movie-search-app/
 
 ## ✨ Tóm tắt
 
-> Đây là một dự án frontend giúp hiểu trọn vẹn luồng hoạt động: **User → JavaScript → API → Data → UI → State**, và là bước đệm vững chắc để tiến lên React & Next.js.
+> Đây là một dự án frontend giúp hiểu trọn vẹn luồng hoạt động: **User → JavaScript → API → Data → UI → State**, và là bước đệm vững chắc để tiến lên React JS.
