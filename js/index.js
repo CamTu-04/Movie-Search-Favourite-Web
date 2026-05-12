@@ -125,58 +125,38 @@ createMovieListHTML(moviesNew, "#movie-attention-new");
 /*<---------End of Show Popup Info Film--------->*/
 
 /*<---------------Search Film----------------->*/
-/*<--------------- ALL MOVIES ----------------->*/
-const movieAll = [
-    ...movies,
-    ...moviesChina,
-    ...moviesKorea,
-    ...moviesNew
-];
+const movieAll = [...movies,...moviesChina,...moviesKorea,...moviesNew];
 
-
-/*<--------------- SEARCH ELEMENTS ----------------->*/
 const inputSearch = document.querySelector("#search-input");
 const searchContainer = document.querySelector(".list-result-search");
 
-
-/*<--------------- RENDER SEARCH RESULTS ----------------->*/
 function renderMovieSearchResults(movieList) {
 
-    // No Result State
     if (movieList.length === 0) {
-
         searchContainer.innerHTML = `
             <p class="no-result">
                 Không tìm thấy phim
             </p>
         `;
-
         return;
     }
 
     let movieHTML = "";
-
     movieList.forEach(movie => {
-
         movieHTML += `
             <div class="list-result-film" data-id="${movie.id}">
-
                 <img 
                     src="${movie.image}" 
                     alt="${movie.title}"
                 >
-
                 <div class="search-movie-info">
                     <h4>${movie.title}</h4>
-
                     <p>${movie.englishTitle}</p>
-
                     <div class="movie-meta">
                         <span>${movie.year}</span>
                         <span>⭐ ${movie.rating}</span>
                     </div>
                 </div>
-
             </div>
         `;
     });
@@ -184,12 +164,8 @@ function renderMovieSearchResults(movieList) {
     searchContainer.innerHTML = movieHTML;
 }
 
-
-/*<--------------- FILTER MOVIES ----------------->*/
 function getFilteredMovies(searchTerm) {
-
     return movieAll.filter(movie => {
-
         return (
             movie.title.toLowerCase().includes(searchTerm) ||
             movie.englishTitle.toLowerCase().includes(searchTerm)
@@ -198,8 +174,6 @@ function getFilteredMovies(searchTerm) {
     });
 }
 
-
-/*<--------------- SHOW / HIDE SEARCH ----------------->*/
 function showSearchResults() {
     searchContainer.classList.add("show");
 }
@@ -208,28 +182,42 @@ function hideSearchResults() {
     searchContainer.classList.remove("show");
 }
 
-
-/*<--------------- SEARCH EVENT ----------------->*/
 inputSearch.addEventListener("input", e => {
-
     const searchTerm = e.target.value
         .trim()
         .toLowerCase();
 
-    // Empty Search State
     if (searchTerm === "") {
-
         searchContainer.innerHTML = "";
-
         hideSearchResults();
-
         return;
     }
-
     const filteredMovies = getFilteredMovies(searchTerm);
-
     renderMovieSearchResults(filteredMovies);
-
     showSearchResults();
 });
+/*<----------End of Search Film---------->*/
 
+/*<----------Create Category------------->*/
+let movieUniqueCate = [];
+movieAll.forEach(movie => {
+    let isExist = false;
+    for(let movieUni of movieUniqueCate){
+        if(movieUni === movie.genre) isExist = true;
+    }
+    if(!isExist) movieUniqueCate.push(movie.genre);
+
+})
+
+const listCategory = document.querySelector("#list-category")
+function showCategory(uniqueCate){
+    let movieHTML ="";
+    uniqueCate.forEach(uniCate => {
+        movieHTML += `
+            <div class="attention">${uniCate}</div>
+        `
+    })
+    listCategory.innerHTML = movieHTML;
+}
+
+showCategory(movieUniqueCate);
