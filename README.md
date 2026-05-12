@@ -106,4 +106,8 @@ movie-search-app/
 
 ## ✨ Tóm tắt
 
+<<<<<<< HEAD
 > Đây là một dự án frontend giúp hiểu trọn vẹn luồng hoạt động: **User → JavaScript → API → Data → UI → State**, và là bước đệm vững chắc để tiến lên React.
+=======
+> Đây là một dự án frontend giúp hiểu trọn vẹn luồng hoạt động: **User → JavaScript → API → Data → UI → State**, và là bước đệm vững chắc để tiến lên React JS.
+>>>>>>> 499411a0f439ef9bb7a821a0303f8cf9caa78051
