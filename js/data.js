@@ -54,13 +54,13 @@ const moviesChina =[
     },
     {
         id: "china-2",
-        title: "Cung Nữ Này Thật Ngu Ngốc",
-        englishTitle: "This Palace Maid is Really Stupid",
-        description: "Một câu chuyện hài hước về một cung nữ ngốc nghếch nhưng có trái tim ấm áp, người vô tình trở thành người hầu cận của một hoàng tử lạnh lùng và bí ẩn.",
+        title: "Trục Ngọc",
+        englishTitle: "Pursuit of Jade",
+        description: "Phim kể về mối tình giữa nàng đồ tể Phàn Trường Ngọc và vị Hầu gia Tạ Chinh đang che giấu thân phận.",
         image: "assets/movie2.webp",
         year: 2025,
         rating: 8.0,
-        genre: "Hài Hước"
+        genre: "Cổ Trang"
     },
     {
         id: "china-3",
@@ -77,7 +77,7 @@ const moviesChina =[
         title: "Pháo Hoa",
         englishTitle: "Fireworks",
         description: "Một câu chuyện hài hước về một nhóm bạn trẻ cùng nhau tổ chức một buổi lễ pháo hoa đầy ắp niềm vui và bất ngờ.",
-        image: "assets/movie4.webp",
+        image: "assets/n4.jpeg",
         year: 2026,
         rating: 7.8,
         genre: "Hài Hước"
@@ -127,10 +127,10 @@ const moviesKorea = [
     },
     {
         id: "korea-3",
-        title: "Bác Sĩ Shin",
-        englishTitle: "Doctor Shin",
+        title: "Bác Sĩ Johan",
+        englishTitle: "Doctor Johan",
         description: "Một câu chuyện cảm động về một bác sĩ tận tâm và những bệnh nhân của anh, nơi tình yêu và sự hy sinh được đặt lên hàng đầu.",    
-        image: "assets/k3.jpg",
+        image: "assets/k3.webp",
         year: 2026,
         rating: 8.6,
         genre: "Tình Cảm"

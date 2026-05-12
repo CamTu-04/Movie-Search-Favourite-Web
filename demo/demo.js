@@ -1,169 +1,208 @@
-/*<--------- FEATURED MOVIE --------->*/
-
-const featuredFilmContainer =
-    document.querySelector(".featured-film");
+/*<---------Render Featured Movie--------->*/
+const featuredFilmContainer = document.querySelector(".featured-film");
 
 function renderFeaturedMovie(movie) {
-
     const movieHTML = `
-    
         <img 
             src="${movie.image}" 
             alt="${movie.title}" 
             class="featured-image"
         >
-
         <div class="overlay"></div>
-
         <div class="featured-info">
-
             <h2>${movie.title}</h2>
-
             <p class="english-title">
                 ${movie.englishTitle}
             </p>
-
             <div class="movie-meta">
-
                 <span>${movie.year}</span>
-
                 <span>⭐ ${movie.rating}</span>
-
                 <span>${movie.genre}</span>
-
             </div>
-
             <p>${movie.description}</p>
-
-            <button class="watch-now">
-                Xem Ngay
-            </button>
-
+            <button class="watch-now">Xem Ngay</button>
         </div>
     `;
 
     featuredFilmContainer.innerHTML = movieHTML;
 }
 
-
-
-/*<--------- AUTO SLIDE --------->*/
-
 let indexCurrentFeatured = 0;
-
 function slideAuto() {
-
-    renderFeaturedMovie(
-        movies[indexCurrentFeatured]
-    );
-
+    featuredFilmContainer.classList.add("show");
+    renderFeaturedMovie(movies[indexCurrentFeatured]);
     indexCurrentFeatured++;
-
-    if(indexCurrentFeatured >= movies.length){
+    if(indexCurrentFeatured >= movies.length ) {
         indexCurrentFeatured = 0;
     }
 
-}
+    const featuredImage = document.querySelector(".featured-image");
 
-setInterval(slideAuto, 5000);
-
-
-
-/*<--------- ALL MOVIES --------->*/
-
-const allMovies = [
-
-    ...movies,
-    ...moviesChina,
-    ...moviesKorea,
-    ...moviesNew
-
-];
-
-
-
-/*<--------- RENDER MOVIE LIST --------->*/
-
-function renderMovieList(movieArray, containerId){
-
-    const container =
-        document.querySelector(containerId);
-
-    let movieHTML = "";
-
-    movieArray.forEach(movie => {
-
-        movieHTML += `
+    setTimeout(() => {
+        featuredImage.classList.add("show");
+    }, 100);
         
-            <div 
-                class="movie"
-                data-id="${movie.id}"
-            >
+    const featuredInfo = document.querySelector(".featured-info");
 
-                <img 
-                    src="${movie.image}" 
-                    alt="${movie.title}"
-                >
+    setTimeout(() => {
+        featuredInfo.classList.add("show");
+    }, 200);
+    setTimeout(slideAuto, 5000);
+}
+slideAuto();
+/*<---------End of Render Featured Movie--------->*/
 
+/*<---------List Movie Popular Countries--------->*/
+function createMovieListHTML(movieArray, idContainer) {
+    const renderMovieContainer = document.querySelector(idContainer);
+    let movieHTML = "";
+    movieArray.forEach(movie => {
+        movieHTML += `
+            <div class="movie" data-id="${movie.id}">
+                <img src="${movie.image}" alt="${movie.title}">
                 <h4>${movie.title}</h4>
-
+                <div id="movie-popup" class="movie-popup">
+                    <img src="${movie.image}" alt="${movie.title}">
+                    <div class="popup-info">
+                        <h3>${movie.title}</h3>
+                        <p>${movie.englishTitle}</p>
+                        <div class="movie-popup-meta">
+                            <button class="watch-now">▶ Xem Ngay</button>
+                            <button class="like-btn">🤍 Thích</button>
+                            <button class="detail-btn">🛈 Chi tiết</button>
+                        </div>
+                        <div class="movie-meta">
+                            <span>${movie.year}</span>
+                            <span>⭐ ${movie.rating}</span>
+                            <span>${movie.genre}</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         `;
     });
+    renderMovieContainer.innerHTML = movieHTML;
+}
+createMovieListHTML(moviesChina, "#movie-attention-china");
+createMovieListHTML(moviesKorea, "#movie-attention-korea");
+createMovieListHTML(moviesNew, "#movie-attention-new");
+/*<---------End of List Movie Popular Countries--------->*/
 
-    container.innerHTML = movieHTML;
+// /*<---------Show Popup Info Film--------->*/
+// const popupElement = document.querySelector(".movie-popup");
+// function showPopup(movie) {
+//     const popupHTML = `
+        // <img src="${movie.image}" alt="${movie.title}">
+        // <div class="popup-info">
+        //     <h3>${movie.title}</h3>
+        //     <p>${movie.englishTitle}</p>
+        //     <div class="movie-meta">
+        //         <span>${movie.year}</span>
+        //         <span>⭐ ${movie.rating}</span>
+        //         <span>${movie.genre}</span>
+        //     </div>
+        //     <p>${movie.description}</p>
+        // </div>
+//     `;
+//     popupElement.innerHTML = popupHTML;
+// }
 
+// const movieAll = [...moviesChina, ...moviesKorea, ...moviesNew];
+// const movieElements = document.querySelectorAll(".movie");
+// movieElements.forEach(movieElement => {
+//     movieElement.addEventListener("mouseenter", () => {
+//         const movieId = movieElement.dataset.id;
+//         const movieData = movieAll.find(movie => movie.id === movieId);
+//         if(movieData){
+//             showPopup(movieData);
+//             popupElement.classList.add("show");
+//         }
+//     });
+//     movieElement.addEventListener("mouseleave", () => {
+//         popupElement.classList.remove("show");
+//     });
+// });
+/*<---------End of Show Popup Info Film--------->*/
+
+/*<---------------Search Film----------------->*/
+const movieAll = [...movies,...moviesChina, ...moviesKorea, ...moviesNew];
+
+const searchContainer = document.querySelector(".list-result-search");
+function renderMovieSearchResults(moviesList) {
+    let movieHTML = "";
+    if(moviesList.length === 0){
+        movieHTML = `
+            <p class="no-result">
+                Không tìm thấy phim
+            </p>
+        `;
+    }
+    else{
+        moviesList.forEach(movie => {
+            movieHTML += `
+                <div class="list-result-film" data-id="${movie.id}">
+                    <img src="${movie.image}" alt="${movie.title}">
+                    <h4>${movie.title}</h4>
+                </div>
+            `;
+        });
+    }
+    searchContainer.innerHTML = movieHTML;
 }
 
+const inputSearch = document.querySelector("#search-input");
+inputSearch.addEventListener("input", e => {
+    const searchTerm = e.target.value.toLowerCase();
+    const filteredMovies = movieAll.filter(movie => 
+        movie.title.toLowerCase().includes(searchTerm) || 
+        movie.englishTitle.toLowerCase().includes(searchTerm)
+    );
+    if(searchTerm === ""){
+        searchContainer.innerHTML = "";
+        return;
+    }
+    renderMovieSearchResults(filteredMovies);
+});
+
+/*<--------------- CLICK OUTSIDE ----------------->*/
+document.addEventListener("click", e => {
+
+    const isSearchBox =
+        e.target.closest("#search-box");
+
+    if (!isSearchBox) {
+
+        hideSearchResults();
+    }
+});
 
 
-/*<--------- RENDER SECTIONS --------->*/
+/*<--------------- CLICK SEARCH RESULT ----------------->*/
+searchContainer.addEventListener("click", e => {
 
-renderMovieList(
-    moviesChina,
-    "#movie-attention-china"
-);
+    const movieElement =
+        e.target.closest(".list-result-film");
 
-renderMovieList(
-    moviesKorea,
-    "#movie-attention-korea"
-);
+    if (!movieElement) return;
 
-renderMovieList(
-    moviesNew,
-    "#movie-attention-new"
-);
+    const movieId = movieElement.dataset.id;
 
+    const selectedMovie = movieAll.find(movie => {
 
-
-/*<--------- DEFAULT FEATURED --------->*/
-
-renderFeaturedMovie(movies[0]);
-
-
-
-/*<--------- MOVIE INTERACTION --------->*/
-
-const movieElements =
-    document.querySelectorAll(".movie");
-
-movieElements.forEach(movieElement => {
-
-    movieElement.addEventListener("click", () => {
-
-        const movieId =
-            movieElement.dataset.id;
-
-        const selectedMovie =
-            allMovies.find(movie => {
-
-                return movie.id == movieId;
-
-            });
-
-        renderFeaturedMovie(selectedMovie);
+        return String(movie.id) === movieId;
 
     });
 
+    if (!selectedMovie) return;
+
+    // Change Featured Movie
+    renderFeaturedMovie(selectedMovie);
+
+    // Clear Input
+    inputSearch.value = "";
+
+    // Hide Result
+    hideSearchResults();
+
+    searchContainer.innerHTML = "";
 });

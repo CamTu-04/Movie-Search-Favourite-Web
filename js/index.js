@@ -66,12 +66,16 @@ function createMovieListHTML(movieArray, idContainer) {
                     <div class="popup-info">
                         <h3>${movie.title}</h3>
                         <p>${movie.englishTitle}</p>
+                        <div class="movie-popup-meta">
+                            <button class="watch-now">▶ Xem Ngay</button>
+                            <button class="like-btn">🤍 Thích</button>
+                            <button class="detail-btn">🛈 Chi tiết</button>
+                        </div>
                         <div class="movie-meta">
                             <span>${movie.year}</span>
                             <span>⭐ ${movie.rating}</span>
                             <span>${movie.genre}</span>
                         </div>
-                       <button class="watch-now">Xem Ngay</button>
                     </div>
                 </div>
             </div>
@@ -119,4 +123,113 @@ createMovieListHTML(moviesNew, "#movie-attention-new");
 //     });
 // });
 /*<---------End of Show Popup Info Film--------->*/
+
+/*<---------------Search Film----------------->*/
+/*<--------------- ALL MOVIES ----------------->*/
+const movieAll = [
+    ...movies,
+    ...moviesChina,
+    ...moviesKorea,
+    ...moviesNew
+];
+
+
+/*<--------------- SEARCH ELEMENTS ----------------->*/
+const inputSearch = document.querySelector("#search-input");
+const searchContainer = document.querySelector(".list-result-search");
+
+
+/*<--------------- RENDER SEARCH RESULTS ----------------->*/
+function renderMovieSearchResults(movieList) {
+
+    // No Result State
+    if (movieList.length === 0) {
+
+        searchContainer.innerHTML = `
+            <p class="no-result">
+                Không tìm thấy phim
+            </p>
+        `;
+
+        return;
+    }
+
+    let movieHTML = "";
+
+    movieList.forEach(movie => {
+
+        movieHTML += `
+            <div class="list-result-film" data-id="${movie.id}">
+
+                <img 
+                    src="${movie.image}" 
+                    alt="${movie.title}"
+                >
+
+                <div class="search-movie-info">
+                    <h4>${movie.title}</h4>
+
+                    <p>${movie.englishTitle}</p>
+
+                    <div class="movie-meta">
+                        <span>${movie.year}</span>
+                        <span>⭐ ${movie.rating}</span>
+                    </div>
+                </div>
+
+            </div>
+        `;
+    });
+
+    searchContainer.innerHTML = movieHTML;
+}
+
+
+/*<--------------- FILTER MOVIES ----------------->*/
+function getFilteredMovies(searchTerm) {
+
+    return movieAll.filter(movie => {
+
+        return (
+            movie.title.toLowerCase().includes(searchTerm) ||
+            movie.englishTitle.toLowerCase().includes(searchTerm)
+        );
+
+    });
+}
+
+
+/*<--------------- SHOW / HIDE SEARCH ----------------->*/
+function showSearchResults() {
+    searchContainer.classList.add("show");
+}
+
+function hideSearchResults() {
+    searchContainer.classList.remove("show");
+}
+
+
+/*<--------------- SEARCH EVENT ----------------->*/
+inputSearch.addEventListener("input", e => {
+
+    const searchTerm = e.target.value
+        .trim()
+        .toLowerCase();
+
+    // Empty Search State
+    if (searchTerm === "") {
+
+        searchContainer.innerHTML = "";
+
+        hideSearchResults();
+
+        return;
+    }
+
+    const filteredMovies = getFilteredMovies(searchTerm);
+
+    renderMovieSearchResults(filteredMovies);
+
+    showSearchResults();
+});
 
