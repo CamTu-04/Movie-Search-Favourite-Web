@@ -1,8 +1,10 @@
 /*<---------Render Featured Movie--------->*/
 const featuredFilmContainer = document.querySelector(".featured-film");
+let indexCurrentFeatured = 0;
 
-function renderFeaturedMovie(movie) {
-    const movieHTML = `
+function renderFeatureMovie(movie){
+    let moviehtml="";
+    movieHTML = `
         <img 
             src="${movie.image}" 
             alt="${movie.title}" 
@@ -23,38 +25,30 @@ function renderFeaturedMovie(movie) {
             <button class="watch-now">Xem Ngay</button>
         </div>
     `;
-
     featuredFilmContainer.innerHTML = movieHTML;
 }
 
-let indexCurrentFeatured = 0;
 function slideAuto() {
-    featuredFilmContainer.classList.add("show");
-    renderFeaturedMovie(movies[indexCurrentFeatured]);
-    indexCurrentFeatured++;
-    if(indexCurrentFeatured >= movies.length ) {
-        indexCurrentFeatured = 0;
-    }
+    renderFeatureMovie(movies[indexCurrentFeatured]);
+    indexCurrentFeatured = (indexCurrentFeatured + 1) % movies.length;
 
     const featuredImage = document.querySelector(".featured-image");
-
-    setTimeout(() => {
-        featuredImage.classList.add("show");
-    }, 100);
-        
     const featuredInfo = document.querySelector(".featured-info");
 
-    setTimeout(() => {
+    setTimeout(()=> {
+        featuredImage.classList.add("show");
         featuredInfo.classList.add("show");
-    }, 200);
-    setTimeout(slideAuto, 5000);
+    },200);
 }
 slideAuto();
+setInterval(slideAuto, 5000);
 /*<---------End of Render Featured Movie--------->*/
+
+
 
 /*<---------List Movie Popular Countries--------->*/
 function createMovieListHTML(movieArray, idContainer) {
-    const renderMovieContainer = document.querySelector(idContainer);
+    const idListMovie = document.querySelector(idContainer);
     let movieHTML = "";
     movieArray.forEach(movie => {
         movieHTML += `
@@ -80,8 +74,8 @@ function createMovieListHTML(movieArray, idContainer) {
                 </div>
             </div>
         `;
-    });
-    renderMovieContainer.innerHTML = movieHTML;
+    })
+    idListMovie.innerHTML = movieHTML;
 }
 createMovieListHTML(moviesChina, "#movie-attention-china");
 createMovieListHTML(moviesKorea, "#movie-attention-korea");
@@ -124,25 +118,24 @@ createMovieListHTML(moviesNew, "#movie-attention-new");
 // });
 /*<---------End of Show Popup Info Film--------->*/
 
+
+
 /*<---------------Search Film----------------->*/
 const movieAll = [...movies,...moviesChina,...moviesKorea,...moviesNew];
-
 const inputSearch = document.querySelector("#search-input");
-const searchContainer = document.querySelector(".list-result-search");
+const resultSearch = document.querySelector(".list-result-search");
 
-function renderMovieSearchResults(movieList) {
-
-    if (movieList.length === 0) {
-        searchContainer.innerHTML = `
+function renderSearchFilm(listFilmResult){
+    if(listFilmResult.length === 0){
+        resultSearch.innerHTML = `
             <p class="no-result">
                 Không tìm thấy phim
             </p>
         `;
-        return;
+        
     }
-
     let movieHTML = "";
-    movieList.forEach(movie => {
+    listFilmResult.forEach(movie => {
         movieHTML += `
             <div class="list-result-film" data-id="${movie.id}">
                 <img 
@@ -159,65 +152,100 @@ function renderMovieSearchResults(movieList) {
                 </div>
             </div>
         `;
-    });
-
-    searchContainer.innerHTML = movieHTML;
+    })
+    resultSearch.innerHTML = movieHTML;
 }
 
-function getFilteredMovies(searchTerm) {
-    return movieAll.filter(movie => {
-        return (
-            movie.title.toLowerCase().includes(searchTerm) ||
-            movie.englishTitle.toLowerCase().includes(searchTerm)
-        );
-
-    });
-}
-
-function showSearchResults() {
-    searchContainer.classList.add("show");
-}
-
-function hideSearchResults() {
-    searchContainer.classList.remove("show");
+function filterResult(searchFilm){
+    return movieAll.filter(movie => 
+        movie.title.toLowerCase().includes(searchFilm) || movie.englishTitle.toLowerCase().includes(searchFilm)
+    )
 }
 
 inputSearch.addEventListener("input", e => {
-    const searchTerm = e.target.value
-        .trim()
-        .toLowerCase();
-
-    if (searchTerm === "") {
-        searchContainer.innerHTML = "";
-        hideSearchResults();
+    let searchItem = e.target.value.toLowerCase().trim();
+    if(searchItem === "") {
+        resultSearch.classList.remove("show");
         return;
     }
-    const filteredMovies = getFilteredMovies(searchTerm);
-    renderMovieSearchResults(filteredMovies);
-    showSearchResults();
-});
-/*<----------End of Search Film---------->*/
-
-/*<----------Create Category------------->*/
-let movieUniqueCate = [];
-movieAll.forEach(movie => {
-    let isExist = false;
-    for(let movieUni of movieUniqueCate){
-        if(movieUni === movie.genre) isExist = true;
-    }
-    if(!isExist) movieUniqueCate.push(movie.genre);
-
+    renderSearchFilm(filterResult(searchItem));
+    resultSearch.classList.add("show");
 })
 
-const listCategory = document.querySelector("#list-category")
-function showCategory(uniqueCate){
-    let movieHTML ="";
-    uniqueCate.forEach(uniCate => {
+/*<----------End of Search Film---------->*/
+
+
+
+/*<----------Create Category------------->*/
+const listCate = document.querySelector("#list-category");
+let listCatoryFilm = [];
+
+function renderCategoryFilm(categoryArr){
+    let movieHTML = "";
+    categoryArr.forEach(cateUnique => {
         movieHTML += `
-            <div class="attention">${uniCate}</div>
-        `
+            <div class="attention" data-genre="${cateUnique}">${cateUnique}</div>
+        `;
     })
-    listCategory.innerHTML = movieHTML;
+    listCate.innerHTML = movieHTML;
 }
 
-showCategory(movieUniqueCate);
+function filterCategoryUnique(movieArray){
+    movieArray.forEach(movie => {
+        let isExist = false;
+        for(let genre of listCatoryFilm){
+            if(movie.genre === genre){
+                isExist = true;
+            }
+        }
+        if(!isExist){
+            listCatoryFilm.push(movie.genre);
+        }
+        
+    })
+    return listCatoryFilm;
+}
+
+renderCategoryFilm(filterCategoryUnique(movieAll));
+
+/*<-----------End Create Category--------->*/
+
+/*<-----------Show Filter Category---------->*/
+const filterCate = document.querySelector(".filter-category");
+
+function renderFilterCategory(movies){
+    let movieHTML = `
+        <button class="close-popup">
+            ✕
+        </button>
+
+    `;
+    movies.forEach(movie => {
+        movieHTML += `
+            <div class="movie" data-id="${movie.id}">
+                <img src="${movie.image}" alt="${movie.title}">
+                <h4>${movie.title}</h4>
+            </div>
+        `
+    })
+    filterCate.innerHTML = movieHTML;
+    const closeBtn = filterCate.querySelector(".close-popup");
+    closeBtn.addEventListener("click", () => {
+        filterCate.classList.remove("show");
+    });
+}
+
+function filterCategoryFilm(movieArray, genre){
+    const listMovieCate = movieArray.filter(movie => movie.genre === genre);
+    return listMovieCate;
+}
+
+const categoryElement = document.querySelectorAll(" .attention");
+categoryElement.forEach(movieCate => {
+    movieCate.addEventListener("click",()=>{
+        let genElement = movieCate.dataset.genre;
+        renderFilterCategory(filterCategoryFilm(movieAll,genElement));
+        filterCate.classList.add("show");
+    })
+})
+/*<----------- End Show Filter Category---------->*/
